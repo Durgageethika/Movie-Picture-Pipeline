@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'starter/frontend/**'
-
   workflow_dispatch:
 
 jobs:
@@ -28,7 +27,7 @@ jobs:
         working-directory: starter/frontend
         run: npm ci
 
-      - name: Run lint
+      - name: Lint
         working-directory: starter/frontend
         run: npm run lint
 
@@ -50,11 +49,11 @@ jobs:
         working-directory: starter/frontend
         run: npm ci
 
-      - name: Run tests
+      - name: Test
         working-directory: starter/frontend
         run: CI=true npm test -- --watchAll=false
 
-    build:
+  build:
     needs:
       - lint
       - test
